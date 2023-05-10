@@ -7,6 +7,8 @@ export const App = () => {
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState({});
 
+
+  // Lee si hay algo en Local Storage
   useEffect(() => {
     const getLocalStorage = () => {
       const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
@@ -17,11 +19,15 @@ export const App = () => {
       getLocalStorage();
   },[])
 
+
+  // Guarda en local Storage
   useEffect(() => {
     localStorage.setItem("pacientes", JSON.stringify(pacientes));
   }, [pacientes]);
 
+  //  FUncion para eliminar pacientes
   const eliminarPaciente = (id) => {
+
     const pacientesActualizados = pacientes.filter(
       (paciente) => paciente.id !== id
     );

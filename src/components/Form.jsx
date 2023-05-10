@@ -20,12 +20,15 @@ export const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     }
   }, [paciente]);
 
+  // Genera un id para los pacientes
   const idGenerate = () => {
     const randomId = Math.random().toString(36).substr(2);
     const dateId = Date.now().toString(36);
 
     return randomId + dateId;
   };
+
+  // Controla el envio del formulario
 
   const handleSubmit = (e) => {
     e.preventDefault();
